@@ -8,7 +8,8 @@ var gulp             = require('gulp'),
     concat           = require('gulp-concat'),
     uglify           = require('gulp-uglify'),
     exec             = require('child_process').exec,
-    watch            = require('gulp-watch');
+    watch            = require('gulp-watch'),
+    less             = require('gulp-less');
 
 gulp.task('clean', function (cb) {
     clean(['src/templates.js', 'dist/*'], cb)
@@ -24,18 +25,18 @@ gulp.task('build-templates', function () {
         .pipe(gulp.dest('src'));
 });
 
-gulp.task('build-src', function () {
+gulp.task('build-less', function () {
     return gulp
-        .src(['src/blogview.js', 'src/templates.js'])
-        .pipe(concat('blogview.js'))
+        .src('less/*.less')
+        .pipe(less())
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build-bundle', function () {
+gulp.task('build-src', function () {
     return gulp
-        .src(['dist/blogview.js'])
-        .pipe(concat('blogview.min.js'))
-        .pipe(uglify())
+        .src(['src/blogview.js', 'src/blogview.service.js', 'src/blogview.directive.js',
+              'src/blogview.controllers.js', 'src/templates.js'])
+        .pipe(concat('blogview.js'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -66,20 +67,21 @@ gulp.task('build-combo-css-bundle', function () {
     return gulp
         .src([
             'bower_components/bootstrap-css-only/css/bootstrap.css',
-            'bower_components/angular-ui-select/dist/select.css'
+            'bower_components/angular-ui-select/dist/select.css',
+            'dist/*.css'
         ])
         .pipe(concat('blogview.combo.css'))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', function () {
-    runSequence('clean', 'build-templates', 'build-src', 'build-bundle', function () {
+    runSequence('clean', 'build-templates', 'build-less', 'build-src', 'build-bundle', function () {
         console.log('gulp tasks done!');
     });
 });
 
 gulp.task('combo', function () {
-    runSequence('clean', 'build-templates', 'build-src', 'build-combo-bundle', 'build-combo-css-bundle', function () {
+    runSequence('clean', 'build-templates', 'build-less', 'build-src', 'build-combo-bundle', 'build-combo-css-bundle', function () {
         exec('cp ~/Meow-BlogViewer/dist/* ~/Meow-Github/public');
         console.log('gulp tasks done!');
     });
@@ -102,4 +104,3 @@ gulp.task('watch', function () {
         gulp.run('default');
     });
 });
-

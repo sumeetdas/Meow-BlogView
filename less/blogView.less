@@ -19,6 +19,10 @@ p {
   }
 }
 
+blockquote p {
+  margin: 0px 0;
+}
+
 h1,
 h2,
 h3,
@@ -34,6 +38,12 @@ a {
   &:hover,
   &:focus {
     color: @brand-primary;
+  }
+  .tag-link {
+    margin-right: 10px;
+  }
+  .blog-title {
+    text-decoration: none !important;
   }
 }
 
@@ -253,6 +263,7 @@ hr.small {
     font-size: 18px;
     font-style: italic;
     margin-top: 0;
+    margin-bottom: 15px;
     > a {
       text-decoration: none;
       color: @gray-dark;
@@ -388,6 +399,38 @@ form .row:first-child .floating-label-form-group {
     border: 1px solid @brand-primary;
     color: white;
   }
+}
+
+// UI-Select
+
+.form-control {
+  height: 54px;
+}
+
+.ui-select-match:hover,
+.ui-select-match:focus {
+  * {
+    color: #ffffff !important;
+  }
+}
+
+.ui-select-choices {
+  max-height: 135px !important;
+  overflow-y: auto !important;
+}
+
+// Blog main view
+
+.blog-main {
+  height: 100%;
+  overflow-y: auto;
+}
+
+// Side Bar Navigation
+
+.nav-block {
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 // Pager Styling

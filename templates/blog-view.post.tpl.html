@@ -1,0 +1,19 @@
+<div>
+    <h1>{{blog.title}}</h1>
+
+    <div post="blog.post"></div>
+
+    <i class="fa fa-tags"></i> <em ng-repeat="tag in blog.tags"><a class="tag-link" ng-href="/#/blogs/tag/{{tag}}">{{tag}}</a>{{$last ? '' : ', '}}</em>
+
+    <!--<dir-disqus disqus_shortname="{{disqus.shortname}}" disqus_identifier="{{disqus.id}}" disqus_url="{{$location.url}}" disqus_category_id="{{disqus.categoryID}}"
+    ready-to-bind="{{disqus.loaded}}" disqus_title="{{disqus.title}}" disqus_config_language="{{disqus.configLanguage}}" disqus_disable_mobile="{{disqus.disableMobile}}">
+        </dir-disqus>-->
+
+    <!--<div class="col-lg-2">
+            <table class="table">
+                <tr><td><div fb-like></div></td></tr>
+                <tr><td><div tweet></div></td></tr>
+                <tr><td><div google-plus></div></td></tr>
+            </table>
+        </div>-->
+</div>
