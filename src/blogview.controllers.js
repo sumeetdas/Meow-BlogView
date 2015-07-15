@@ -3,42 +3,47 @@
  */
 angular
     .module('meow.blog.view')
-    .controller('BlogViewListCtrl', ['$scope', '$blogView', '$state', function ($scope, $blogView, $state) {
+    .controller('BlogViewListCtrl', ['$scope', '$blogView', '$state', 'meta', function ($scope, $blogView, $state, meta) {
 
-        // change values upon the change in $blogView service property value
-        var unRegister = $scope.$watch(function () { return $blogView.getUserName(); }, function (pNewVal) {
-            $scope.username = pNewVal;
-            unRegister();
-        });
+        $scope.username = meta.username;
 
         /**
          * Load blogs on state change
          * This controller is used by two states and is required to load
-         * blogs based on whether the URL is /blogs/tag/:tag or not.
+         * blogs based on whether the URL is /blogs/tag/:tag, /blogs/query/:query or just /blogs.
          */
         $scope.$on('$stateChangeSuccess', function loadBlogs () {
-            if (undefined === $state.params.tag) {
-                $blogView.getBlogs(function (pData) {
-                    $scope.blogs = pData;
-                });
-            } else {
-                console.log($state.params.tag);
+
+            if (!! $state.params.tag)
+            {
                 $blogView.getBlogsByTag($state.params.tag, function (pData) {
                     $scope.blogs = pData;
-                });
+                }, meta.blogsPerPage);
+            }
+            else if (!! $state.params.query)
+            {
+                $blogView.getBlogsByQuery($state.params.query, function (pData) {
+                    $scope.blogs = pData;
+                }, meta.blogsPerPage)
+            }
+            else
+            {
+                $blogView.getBlogs(function (pData) {
+                    $scope.blogs = pData;
+                }, meta.blogsPerPage);
             }
         });
         // load next set of blogs
         $scope.next = function () {
-            $blogView.getNextBlogs(function (data) {
-                $scope.blogs = data;
-            })
+            $blogView.getNextBlogs(function (pData) {
+                $scope.blogs = pData;
+            }, meta.blogsPerPage)
         };
         // load previous set of blogs
         $scope.prev = function () {
-            $blogView.getPrevBlogs(function (data) {
-                $scope.blogs = data;
-            });
+            $blogView.getPrevBlogs(function (pData) {
+                $scope.blogs = pData;
+            }, meta.blogsPerPage);
         };
         // determine if the current page is the first page of the result list
         $scope.isFirstPage = function () {
@@ -49,6 +54,10 @@ angular
             return $blogView.getCurrentPageNo() === $blogView.getPageCount();
         };
         $scope.getFormattedDate = function (pBlog) {
+            if (!pBlog || !pBlog.fileName)
+            {
+                return '';
+            }
             return $blogView.parseFileName(pBlog.fileName).formattedDate;
         };
         // function to go to blog.view state when the title is clicked upon
@@ -63,7 +72,7 @@ angular
             });
         };
     }])
-    .controller('BlogViewPostCtrl', ['$scope', '$stateParams', '$blogView', function ($scope, $stateParams, $blogView) {
+    .controller('BlogViewPostCtrl', ['$scope', '$stateParams', '$blogView', '$location', 'meta', function ($scope, $stateParams, $blogView, $location, meta) {
         $blogView.getBlog({
             year: $stateParams.year,
             month: $stateParams.month,
@@ -72,23 +81,33 @@ angular
         }, function (pBlog) {
             $scope.blog = pBlog;
         });
+
+        $scope.getFormattedDate = function (pBlog) {
+            if (!pBlog || !pBlog.fileName)
+            {
+                return '';
+            }
+            return $blogView.parseFileName(pBlog.fileName).formattedDate;
+        };
+
+        $scope.username = meta.username;
+
+        meta.disqus = meta.disqus || {};
+
+        $scope.disqus = {
+            shortname: meta.disqus.shortname,
+            id: $location.url(),
+            url: $location.absUrl()
+        };
     }])
     .controller('BlogViewPostSideCtrl', [function () {
 
     }])
     .controller('BlogViewCtrl', ['$blogView', '$scope', '$state', function ($blogView, $scope, $state) {
 
-        // needed for ui select
-        $scope.queryTag = {};
-
-        // loads tags
-        $blogView.getTags (function (data) {
-            $scope.tags = data;
-        });
-
-        $scope.getBlogsByTag = function (pTag) {
-            $state.go('blog.list.tag', {
-                tag: pTag
+        $scope.search = function () {
+            $state.go('blog.list.query', {
+                query: $scope.query
             });
         };
     }]);

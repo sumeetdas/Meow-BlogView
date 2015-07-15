@@ -57,7 +57,8 @@ gulp.task('build-combo-bundle', function () {
             'bower_components/angular-marked/angular-marked.min.js',
             'bower_components/angular-sanitize/angular-sanitize.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
-            'bower_components/angular-ui-select/dist/select.js',
+            'bower_components/angular-socialshare/angular-socialshare.js',
+            'bower_components/angular-utils-disqus/dirDisqus.js',
             'dist/blogview.js'])
         .pipe(concat('blogview.combo.js'))
         .pipe(gulp.dest('dist'));
@@ -68,6 +69,7 @@ gulp.task('build-combo-css-bundle', function () {
         .src([
             'bower_components/bootstrap-css-only/css/bootstrap.css',
             'bower_components/angular-ui-select/dist/select.css',
+            'bower_components/angular-socialshare/angular-socialshare.css',
             'dist/*.css'
         ])
         .pipe(concat('blogview.combo.css'))
@@ -82,7 +84,7 @@ gulp.task('default', function () {
 
 gulp.task('combo', function () {
     runSequence('clean', 'build-templates', 'build-less', 'build-src', 'build-combo-bundle', 'build-combo-css-bundle', function () {
-        exec('cp ~/Meow-BlogViewer/dist/* ~/Meow-Github/public');
+        exec('cp C:/Users/sumedas/Meow-BlogViewer/dist/* C:/Users/sumedas/Meow-Github/public');
         console.log('gulp tasks done!');
     });
 });

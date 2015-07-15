@@ -6583,227 +6583,311 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
-/*!
- * ui-select
- * http://github.com/angular-ui/ui-select
- * Version: 0.11.2 - 2015-03-17T04:08:46.478Z
- * License: MIT
- */
-
-
-/* Style when highlighting a search. */
-.ui-select-highlight {
-  font-weight: bold;
-}
-
-.ui-select-offscreen {
-  clip: rect(0 0 0 0) !important;
-  width: 1px !important;
-  height: 1px !important;
-  border: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  outline: 0 !important;
-  left: 0px !important;
-  top: 0px !important;
-}
-
-/* Select2 theme */
-
-/* Mark invalid Select2 */
-.ng-dirty.ng-invalid > a.select2-choice {
-    border-color: #D44950;
-}
-
-.select2-result-single {
-  padding-left: 0;
-}
-
-.select2-locked > .select2-search-choice-close{
-  display:none;
-}
-
-.select-locked > .ui-select-match-close{
-    display:none;
-}
-
-body > .select2-container.open {
-  z-index: 9999; /* The z-index Select2 applies to the select2-drop */
-}
-
-/* Selectize theme */
-
-/* Helper class to show styles when focus */
-.selectize-input.selectize-focus{
-  border-color: #007FBB !important;
-}
-
-/* Fix input width for Selectize theme */
-.selectize-control > .selectize-input > input {
-  width: 100%;
-}
-
-/* Fix dropdown width for Selectize theme */
-.selectize-control > .selectize-dropdown {
-  width: 100%;
-}
-
-/* Mark invalid Selectize */
-.ng-dirty.ng-invalid > div.selectize-input {
-    border-color: #D44950;
-}
-
-
-/* Bootstrap theme */
-
-/* Helper class to show styles when focus */
-.btn-default-focus {
-  color: #333;
-  background-color: #EBEBEB;
-  border-color: #ADADAD;
-  text-decoration: none;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-.ui-select-bootstrap .ui-select-toggle {
-  position: relative;
-}
-
-.ui-select-bootstrap .ui-select-toggle > .caret {
-  position: absolute;
-  height: 10px;
-  top: 50%;
-  right: 10px;
-  margin-top: -2px;
-}
-
-/* Fix Bootstrap dropdown position when inside a input-group */
-.input-group > .ui-select-bootstrap.dropdown {
-  /* Instead of relative */
-  position: static;
-}
-
-.input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
-  border-radius: 4px; /* FIXME hardcoded value :-/ */
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.ui-select-bootstrap > .ui-select-match > .btn{
-  /* Instead of center because of .btn */
-  text-align: left !important;
-}
-
-.ui-select-bootstrap > .ui-select-match > .caret {
-  position: absolute;
-  top: 45%;
-  right: 15px;
-}
-
-/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
-.ui-select-bootstrap > .ui-select-choices {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  overflow-x: hidden;
-  margin-top: -1px;
-}
-
-body > .ui-select-bootstrap.open {
-  z-index: 1000; /* Standard Bootstrap dropdown z-index */
-}
-
-.ui-select-multiple.ui-select-bootstrap {
-  height: auto;
-  padding: 3px 3px 0 3px;
-}
-
-.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
-  background-color: transparent !important; /* To prevent double background when disabled */
+.facebookShare {
   border: none;
+  visibility: visible;
+  width: auto;
+  height: 22px;
+  background: transparent;
+  overflow: hidden;
+  -webkit-text-size-adjust: none;
+  color: #333;
+  line-height: 1.28;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  direction: ltr;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+  display: inline-block;
+}
+.facebookShare:hover .facebookButton .pluginButton,
+.facebookShare:active .facebookButton .pluginButton,
+.facebookShare:focus .facebookButton .pluginButton {
+  background: #5b7bd5;
+  background: -moz-linear-gradient(top, #5b7bd5 0%, #4864b1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b7bd5), color-stop(100%, #4864b1));
+  background: -webkit-linear-gradient(top, #5b7bd5 0%, #4864b1 100%);
+  background: -o-linear-gradient(top, #5b7bd5 0%, #4864b1 100%);
+  background: -ms-linear-gradient(top, #5b7bd5 0%, #4864b1 100%);
+  background: linear-gradient(to bottom, #5b7bd5 0%, #4864b1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5b7bd5', endColorstr='#4864b1', GradientType=0);
+  border-color: #5874c3 #4961a8 #41599f;
+  box-shadow: inset 0 0 1px #607fd6;
+}
+.facebookShare .facebookButton {
+  color: #3b5998;
+  text-decoration: none;
+  font-size: 11px;
+  text-align: left;
+  display: inline-block;
+  width: 55px;
+}
+.facebookShare .facebookButton .pluginButton {
+  background: #4c69ba;
+  background: -moz-linear-gradient(top, #4c69ba 0%, #3b55a0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4c69ba), color-stop(100%, #3b55a0));
+  background: -webkit-linear-gradient(top, #4c69ba 0%, #3b55a0 100%);
+  background: -o-linear-gradient(top, #4c69ba 0%, #3b55a0 100%);
+  background: -ms-linear-gradient(top, #4c69ba 0%, #3b55a0 100%);
+  background: linear-gradient(to bottom, #4c69ba 0%, #3b55a0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c69ba', endColorstr='#3b55a0', GradientType=0);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  text-shadow: 0 -1px 0 #354c8c;
+  white-space: nowrap;
+}
+.facebookShare .facebookButton .pluginButton .pluginButtonContainer {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.004);
+}
+.facebookShare .facebookButton .pluginButton .pluginButtonContainer .pluginButtonImage {
+  display: inline-block;
+}
+.facebookShare .facebookButton .pluginButton button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  margin: -1px;
   outline: none;
-  height: 1.666666em;
-  margin-bottom: 3px;
+  padding: 0;
+  text-shadow: 0 -1px 0 #354c8c;
 }
-
-.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
-  font-size: 1.6em;
-  line-height: 0.75;
-}
-
-.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
-  outline: 0;
-  margin: 0 3px 3px 0;
-}
-
-.ui-select-multiple .ui-select-match-item {
+.facebookShare .facebookButton .pluginButton button .pluginButtonIcon {
+  height: 14px;
+  left: 0;
+  margin: 0 4px 0 4px;
   position: relative;
+  top: 3px;
+  vertical-align: top;
+  width: 14px;
 }
-
-.ui-select-multiple .ui-select-match-item.dropping-before:before {
-  content: "";
+.facebookShare .facebookButton .pluginButton button .sp_plugin-button-2x {
+  background-image: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y5/r/KxVPs0eEy36.png);
+  background-size: 30px 72px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+}
+.facebookShare .facebookButton .pluginButton button .sx_plugin-button-2x_favblue {
+  background-position: 0 -42px;
+}
+.facebookShare .facebookButton .pluginButton button i.img {
+  -ms-high-contrast-adjust: none;
+  _overflow: hidden;
+}
+.facebookShare .facebookButton .pluginButton .pluginButtonLabel {
+  padding: 0 5px 0 0;
+  position: relative;
+  vertical-align: top;
+}
+.facebookShare .facebookCount {
+  display: inline-block;
+  width: auto;
+}
+.facebookShare .facebookCount .pluginCountButton {
+  background: white;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  color: #6a7180;
+  display: inline-block;
+  font-size: 11px;
+  height: auto;
+  line-height: 18px;
+  margin-left: 6px;
+  min-width: 15px;
+  padding: 0 3px;
+  text-align: center;
+  white-space: nowrap;
+}
+.facebookShare .facebookCount .pluginCountButton span {
+  display: inline-block;
+  min-height: 12px;
+  min-width: 4px;
+  color: #333;
+}
+.facebookShare .facebookCount .pluginCountButtonNub {
+  height: 0;
+  left: 2px;
+  position: relative;
+  top: -15px;
+  width: 5px;
+  z-index: 2;
+}
+.facebookShare .facebookCount .pluginCountButtonNub s,
+.facebookShare .facebookCount .pluginCountButtonNub i {
+  border-color: transparent #bbb;
+  border-style: solid;
+  border-width: 4px 5px 4px 0;
+  display: block;
+  position: relative;
+  top: 1px;
+}
+.facebookShare .facebookCount .pluginCountButtonNub i {
+  border-right-color: #fff;
+  left: 2px;
+  top: -7px;
+}
+@-moz-document url-prefix() {
+  .facebookShare .facebookButton .pluginButton button .pluginButtonIcon {
+    margin: 0 1px;
+  }
+}
+.linkedinShare {
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  border: 0;
+  text-decoration: none;
+  height: 20px;
+  cursor: pointer;
+}
+.linkedinShare:hover .linkedinButton .pluginButtonLabel,
+.linkedinShare:active .linkedinButton .pluginButtonLabel,
+.linkedinShare:focus .linkedinButton .pluginButtonLabel {
+  border: 1px solid #000;
+  border-top-color: #ABABAB;
+  border-right-color: #9A9A9A;
+  border-bottom-color: #787878;
+  border-left-color: #04568B;
+  border-left: 0;
+  background: #ededed;
+  background: -moz-linear-gradient(top, #ededed 0%, #dedede 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(100%, #dedede));
+  background: -webkit-linear-gradient(top, #ededed 0%, #dedede 100%);
+  background: -o-linear-gradient(top, #ededed 0%, #dedede 100%);
+  background: -ms-linear-gradient(top, #ededed 0%, #dedede 100%);
+  background: linear-gradient(to bottom, #ededed 0%, #dedede 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dedede', GradientType=0);
+}
+.linkedinShare .linkedinButton {
+  display: inline-block;
+  width: 59px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+}
+.linkedinShare .linkedinButton .pluginButtonImage {
+  background-image: url(https://www.linkedin.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png);
+  background-position: 0px -276px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
   position: absolute;
-  top: 0;
-  right: 100%;
-  height: 100%;
-  margin-right: 2px;
-  border-left: 1px solid #428bca;
+  left: 0px;
+  top: 0px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  color: #069;
+}
+.linkedinShare .linkedinButton .pluginButtonLabel {
+  color: #333;
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+  float: left;
+  margin-left: 1px;
+  overflow: hidden;
+  text-align: center;
+  height: 18px;
+  padding: 0 4px 0 23px;
+  border: 1px solid #000;
+  border-top-color: #E2E2E2;
+  border-right-color: #BFBFBF;
+  border-bottom-color: #B9B9B9;
+  border-left-color: #E2E2E2;
+  border-left: 0;
+  text-shadow: #ffffff -1px 1px 0;
+  line-height: 20px;
+  border-radius: 2px;
+  background-color: #ECECEC;
+  background: -moz-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #ececec));
+  background: -webkit-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -o-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -ms-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: linear-gradient(to bottom, #fefefe 0%, #ececec 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#ececec', GradientType=0);
+}
+.linkedinShare .linkedinButton .pluginButtonLabel span {
+  color: #333;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  background: transparent none;
+  vertical-align: top;
+  height: 18px;
+  line-height: 20px;
+  float: none;
+}
+.linkedinShare .linkedinCount {
+  padding: 0px;
+  margin: 0px;
+  text-indent: 0px;
+  display: inline-block;
+  vertical-align: baseline;
+}
+.linkedinShare .linkedinCount .pluginCountButton {
+  display: inline-block;
+  overflow: visible;
+  position: relative;
+  height: 18px;
+  padding-left: 2px;
+}
+.linkedinShare .linkedinCount .pluginCountButton .pluginCountButtonRight {
+  display: block;
+  float: left;
+  height: 18px;
+  padding-right: 4px;
+  background-image: url(https://www.linkedin.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right -100px;
+}
+.linkedinShare .linkedinCount .pluginCountButton .pluginCountButtonRight .pluginCountButtonLeft {
+  display: block;
+  float: left;
+  padding-left: 8px;
+  text-align: center;
+  background-image: url(https://www.linkedin.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0px -60px;
+}
+.linkedinShare .linkedinCount .pluginCountButton .pluginCountButtonRight .pluginCountButtonLeft span {
+  display: inline;
+  font-size: 11px;
+  color: #04558B;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  line-height: 18px;
+  padding: 0 2px;
 }
 
-.ui-select-multiple .ui-select-match-item.dropping-after:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 100%;
-  height: 100%;
-  margin-left: 2px;
-  border-right: 1px solid #428bca;
-}
-
-.ui-select-bootstrap .ui-select-choices-row>a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap;
-}
-
-.ui-select-bootstrap .ui-select-choices-row>a:hover, .ui-select-bootstrap .ui-select-choices-row>a:focus {
-    text-decoration: none;
-    color: #262626;
-    background-color: #f5f5f5;
-}
-
-.ui-select-bootstrap .ui-select-choices-row.active>a {
-    color: #fff;
-    text-decoration: none;
-    outline: 0;
-    background-color: #428bca;
-}
-
-.ui-select-bootstrap .ui-select-choices-row.disabled>a,
-.ui-select-bootstrap .ui-select-choices-row.active.disabled>a {
-    color: #777;
-    cursor: not-allowed;
-    background-color: #fff;
-}
-
-/* fix hide/show angular animation */
-.ui-select-match.ng-hide-add,
-.ui-select-search.ng-hide-add {
-    display: none !important;
-}
-
-/* Mark invalid Bootstrap */
-.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
-    border-color: #D44950;
-}
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -7031,11 +7115,28 @@ hr.small {
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
+  font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 .post-preview > a > .post-subtitle {
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;
+  font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+}
+.post-preview > .post-title {
+  font-size: 48px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+.post-preview > .post-subtitle {
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+  font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+  font-size: 30px;
+  padding-top: 15px;
+  padding-bottom: 5px;
 }
 .post-preview > .post-meta {
   color: #808080;
@@ -7221,6 +7322,27 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+/*
+ * social share tweaks
+ */
+.facebookShare {
+  overflow: visible !important;
+}
+@-moz-document url-prefix() {
+  .facebookShare .facebookButton .pluginButton .pluginButtonContainer {
+    padding-left: 3px;
+  }
+  .facebookShare .facebookButton .pluginButton .pluginButtonContainer .pluginButtonLabel {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+.linkedinShare .linkedinButton .pluginButtonImage {
+  height: 19px !important;
+}
+.linkedinShare .linkedinCount .pluginCountButton .pluginCountButtonRight .pluginCountButtonLeft {
+  height: 20px !important;
 }
 
 

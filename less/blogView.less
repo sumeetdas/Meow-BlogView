@@ -251,12 +251,29 @@ hr.small {
       font-size: 30px;
       margin-top: 30px;
       margin-bottom: 10px;
+      font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     }
     > .post-subtitle {
       margin: 0;
       font-weight: 300;
       margin-bottom: 10px;
+      font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
     }
+  }
+  > .post-title {
+    font-size: 48px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  }
+  > .post-subtitle {
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 10px;
+    font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 5px;
   }
   > .post-meta {
     color: @gray;
@@ -498,4 +515,34 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: @brand-primary;
+}
+
+/*
+ * social share tweaks
+ */
+
+.facebookShare {
+  overflow: visible !important;
+  @-moz-document url-prefix() {
+    .facebookButton {
+      .pluginButton {
+        .pluginButtonContainer {
+          padding-left: 3px;
+          .pluginButtonLabel {
+            margin-left: 2px;
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+.linkedinShare {
+  .linkedinButton .pluginButtonImage {
+    height: 19px !important;
+  }
+
+  .linkedinCount .pluginCountButton .pluginCountButtonRight .pluginCountButtonLeft {
+    height: 20px !important;
+  }
 }
