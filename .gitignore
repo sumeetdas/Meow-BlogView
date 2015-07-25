@@ -1,4 +1,6 @@
-node_modules/*
-bower_components/*
-.idea/*
-scripts/*
+node_modules
+bower_components
+.idea
+scripts
+dev_dump
+index.html
