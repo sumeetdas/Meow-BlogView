@@ -1,6 +1,6 @@
-node_modules
-bower_components
-.idea
-scripts
-dev_dump
-index.html
+node_modules/*
+bower_components/*
+.idea/*
+scripts/*
+dev_dump/*
+./index.html
