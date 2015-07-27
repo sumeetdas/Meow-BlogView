@@ -1,6 +1,8 @@
 node_modules/*
 bower_components/*
+public/*
 .idea/*
-scripts/*
 dev_dump/*
-./index.html
+./index.js
+_posts
+_uploads
