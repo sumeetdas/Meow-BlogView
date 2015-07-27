@@ -5,10 +5,10 @@
             <div class="nav-block affix">
                 <div class="row">
                     <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="form-control" ng-model="query" placeholder="Type your query here">
+                        <input type="text" class="form-control" ng-model="query" placeholder="Type your query here" ng-keypress="$event.keyCode === 13 ? search() : angular.noop()">
                     </div>
                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 center-block">
-                        <button class="btn btn-default center-block" ng-click="search()">Search</button>
+                        <button class="btn btn-default center-block" ng-click="search()" title="Search {{query ? '\'' + query + '\'' : 'something'}}">Search</button>
                     </div>
                 </div>
                 <hr>
