@@ -1,19 +1,22 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-7 col-lg-offset-2 col-md-10 col-md-offset-1 blog-main" ui-view="main"></div>
-        <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="nav-block affix">
-                <div class="row">
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="form-control" ng-model="query" placeholder="Type your query here" ng-keypress="$event.keyCode === 13 ? search() : angular.noop()">
-                    </div>
-                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 center-block">
-                        <button class="btn btn-default center-block" ng-click="search()" title="Search {{query ? '\'' + query + '\'' : 'something'}}">Search</button>
-                    </div>
+        <div class="col-lg-7 col-lg-offset-2 col-md-12 blog-main" ui-view="main"></div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="query" placeholder="Type your query here" ng-keypress="$event.keyCode === 13 ? search() : angular.noop()">
                 </div>
-                <hr>
-                <div ui-view="side"></div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 center-block">
+                    <button class="btn btn-default center-block" ng-click="search()" title="Search {{query ? '\'' + query + '\'' : 'something'}}">Search</button>
+                </div>
             </div>
+            <hr>
+            <div ui-view="side"></div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <p style="font-size: medium">Powered by <a href="https://github.com/sumeetdas1992/Meow" target="_blank">Meow</a></p>
         </div>
     </div>
 </div>
