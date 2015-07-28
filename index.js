@@ -3,6 +3,7 @@
  */
 
 var express     = require('express'),
+    engine      = require('meow-blog'),
     app         = express();
 
 global.__base = __dirname + '/';
@@ -11,7 +12,7 @@ app.use('/public', express.static(__dirname + '/public'));
 
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-app.use('/dev_dump', express.static(__dirname + '/dev_dump'));
+app.use('/dist', express.static(__dirname + '/dist'));
 
 app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/index.html');
