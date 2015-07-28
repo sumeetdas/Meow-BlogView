@@ -4,7 +4,7 @@
 angular
     .module('meow.blog.view')
     .config(['$locationProvider', function ($locationProvider) {
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true).hashPrefix('!');
     }])
     .service('$blogView', ['$http', function ($http) {
         var currentPageNo = 1, pageCount = 1, pageBlogList = [];

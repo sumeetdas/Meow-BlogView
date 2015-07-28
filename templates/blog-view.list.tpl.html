@@ -9,10 +9,10 @@
                     {{blog.subtitle}}
                 </h3>
             </a>
-            <div class="post-meta">Posted by <a ng-href="/#/blogs">{{username}}</a> on {{getFormattedDate(blog)}}</div>
+            <div class="post-meta">Posted by <a ng-href="/#!/blogs">{{username}}</a> on {{getFormattedDate(blog)}}</div>
             <div class="post-meta">
                 <span class="glyphicon glyphicon-tags text-info" style="margin-right:5px;"></span>
-                <em ng-repeat="tag in blog.tags"><a class="tag-link" ng-href="/#/blogs/tags/{{tag}}">{{tag}}</a>{{$last ? '' : ', '}}</em>
+                <em ng-repeat="tag in blog.tags"><a class="tag-link" ng-href="/#!/blogs/tags/{{tag}}">{{tag}}</a>{{$last ? '' : ', '}}</em>
             </div>
         </div>
         <!--<div class="post-preview" ng-if="blogs === [] || !blogs">

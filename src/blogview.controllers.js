@@ -7,6 +7,12 @@ angular
 
         $scope.username = meta.username;
 
+        meta.angularSocialShare = meta.angularSocialShare || {};
+
+        meta.angularSocialShare.twitter = meta.angularSocialShare.twitter || {};
+
+        $scope.twitterHandle = meta.angularSocialShare.twitter.handle || '';
+
         /**
          * Load blogs on state change
          * This controller is used by two states and is required to load
