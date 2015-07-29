@@ -1,6 +1,9 @@
 angular
     .module('meow.blog.view', ['ui.router', 'blogViewTemplates', 'ngSanitize', 'hc.marked', 'djds4rce.angular-socialshare', 'angularUtils.directives.dirDisqus'])
-    .config(['$stateProvider', function ($stateProvider) {
+    .config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
+
         $stateProvider
             .state('blog', {
                 abstract: true,

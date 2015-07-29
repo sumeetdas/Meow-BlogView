@@ -3,6 +3,6 @@ bower_components/*
 public/*
 .idea/*
 dev_dump/*
-./index.js
+/index.js
 _posts
 _uploads
