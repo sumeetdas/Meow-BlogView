@@ -14,7 +14,7 @@ angular
                     }
                 },
                 resolve: {
-                    meta: ['$http', '$FB', function ($http, $FB) {
+                    meta: ['$http', '$FB', '$rootScope', function ($http, $FB, $rootScope) {
                         return $http({method: 'GET', url: '/api/meta'})
                             .then(function (pData) {
                                 pData = pData.data || {};
@@ -25,6 +25,13 @@ angular
                                 {
                                     $FB.init(shareConfig.facebook.appId);
                                 }
+
+                                $rootScope.defaultPageTitle = pData.username || 'John Doe';
+
+                                $rootScope.metaTags = {
+                                    title: pData.username || 'John Doe'
+                                };
+
                                 return {
                                     blogsPerPage: pData.blogsPerPage || 5,
                                     username: pData.username || 'John Doe',
@@ -75,5 +82,13 @@ angular
                         templateUrl: 'blog-view.post.side.tpl.html'
                     }
                 }
+            });
+    }])
+    .run(['$rootScope', function ($rootScope) {
+        $rootScope.$on('$stateChangeSuccess', function(){
+                $rootScope.metaTags.og = {};
+                $rootScope.metaTags.twitter = {};
+                $rootScope.metaTags.tags = [];
+                $rootScope.metaTags.title = $rootScope.defaultPageTitle;
             });
     }]);

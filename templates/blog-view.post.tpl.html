@@ -1,13 +1,18 @@
-<div class="post-preview">
-    <h1 class="post-title">{{blog.title}}</h1>
+<div itemscope itemtype="http://schema.org/Article" class="post-preview">
+    <h1 itemprop="name" class="post-title">{{blog.title}}</h1>
 
     <h3 ng-if="blog.subtitle" class="post-subtitle">{{blog.subtitle}}</h3>
 
-    <div post="blog.post"></div>
+    <span itemprop="articleBody">
+        <div post="blog.post"></div>
+    </span>
 
     <br>
 
-    <div class="post-meta">Posted by <a ng-href="/#/blogs">{{username}}</a> on {{getFormattedDate(blog)}}</div>
+    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="post-meta">Posted by <a ng-href="/#/blogs"><span itemprop="name">{{username}}</span></a> on <span itemprop="datePublished" content="{{getFormattedDate(blog, true)}}">{{getFormattedDate(blog)}}</span></span>
+    </span>
+
     <div class="post-meta">
         <span class="glyphicon glyphicon-tags text-info" style="margin-right:5px;"></span>
         <em ng-repeat="tag in blog.tags">
@@ -34,6 +39,6 @@
 
     <br>
 
-    <dir-disqus disqus_shortname="{{disqus.shortname}}" disqus_identifier="{{disqus.id}}" disqus_url="{{disqus.url}}"></dir-disqus>
+    <dir-disqus disqus_shortname="{{disqus.shortname}}" disqus_identifier="{{disqus.url}}" disqus_url="{{disqus.url}}"></dir-disqus>
 
 </div>

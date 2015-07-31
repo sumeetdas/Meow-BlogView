@@ -78,7 +78,8 @@ angular
             });
         };
     }])
-    .controller('BlogViewPostCtrl', ['$scope', '$stateParams', '$blogView', '$location', 'meta', function ($scope, $stateParams, $blogView, $location, meta) {
+    .controller('BlogViewPostCtrl', ['$scope', '$stateParams', '$blogView', '$location', 'meta', '$rootScope',
+	function ($scope, $stateParams, $blogView, $location, meta, $rootScope) {
         $blogView.getBlog({
             year: $stateParams.year,
             month: $stateParams.month,
@@ -86,14 +87,61 @@ angular
             slug: $stateParams.slug
         }, function (pBlog) {
             $scope.blog = pBlog;
+
+            $rootScope.metaTags = {
+                twitter: [{
+                    name: 'twitter:card',
+                    content: 'summary'
+                }, {
+                    name: 'twitter:title',
+                    content: pBlog.title
+                }, {
+                    name: 'twitter:description',
+                    content: pBlog.subtitle
+                }, {
+                    name: 'twitter:url',
+                    content: $location.absUrl()
+                }, {
+                    name: 'generator',
+                    content: 'Meow'
+                }],
+                og: [{
+                    property: 'og:site_name',
+                    content: meta.username
+                }, {
+                    property: 'og:type',
+                    content: 'article'
+                }, {
+                    property: 'og:title',
+                    content: pBlog.title
+                }, {
+                    property: 'og:description',
+                    content: pBlog.subtitle
+                }, {
+                    property: 'og:url',
+                    content: $location.absUrl()
+                }, {
+                    property: 'article:published_time',
+                    content: $scope.getFormattedDate(pBlog, true)
+                }],
+                tags: pBlog.tags,
+                title: pBlog.title
+            };
         });
 
-        $scope.getFormattedDate = function (pBlog) {
+        $scope.getFormattedDate = function (pBlog, pIsMeta) {
             if (!pBlog || !pBlog.fileName)
             {
                 return '';
             }
-            return $blogView.parseFileName(pBlog.fileName).formattedDate;
+
+            if (!pIsMeta) {
+                return $blogView.parseFileName(pBlog.fileName).formattedDate;
+            }
+            else {
+                var parsedData = $blogView.parseFileName(pBlog.fileName);
+                return parsedData.year + '-' + parsedData.month + '-' + parsedData.date;
+            }
         };
 
         $scope.username = meta.username;
@@ -102,18 +150,19 @@ angular
 
         $scope.disqus = {
             shortname: meta.disqus.shortname,
-            id: $location.url(),
             url: $location.absUrl()
         };
     }])
     .controller('BlogViewPostSideCtrl', [function () {
 
     }])
-    .controller('BlogViewCtrl', ['$blogView', '$scope', '$state', function ($blogView, $scope, $state) {
+    .controller('BlogViewCtrl', ['$blogView', '$scope', '$state', '$location', function ($blogView, $scope, $state, $location) {
 
         $scope.search = function () {
             $state.go('blog.list.query', {
                 query: $scope.query
             });
         };
+
+        $scope.siteUrl = $location.absUrl();
     }]);

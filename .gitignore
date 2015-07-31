@@ -6,3 +6,5 @@ dev_dump/*
 /index.js
 _posts
 _uploads
+/robots.txt
+/sitemap*.xml
