@@ -47,10 +47,9 @@ gulp.task('build-src', function () {
 gulp.task('build-combo-bundle', function () {
     return gulp
         .src([
-            'bower_components/jquery/dist/jquery.js',
             'bower_components/angular/angular.js',
             'bower_components/marked/lib/marked.js',
-            'bower_components/angular-marked/angular-marked.min.js',
+            'bower_components/angular-marked/angular-marked.js',
             'bower_components/angular-sanitize/angular-sanitize.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
             'bower_components/angular-socialshare/angular-socialshare.js',
