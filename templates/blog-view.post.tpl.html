@@ -13,7 +13,7 @@
         <span class="post-meta">Posted by <a ng-href="/#/blogs"><span itemprop="name">{{username}}</span></a> on <span itemprop="datePublished" content="{{getFormattedDate(blog, true)}}">{{getFormattedDate(blog)}}</span></span>
     </span>
 
-    <div class="post-meta">
+    <div class="post-meta" style="margin-top: 15px;">
         <span class="glyphicon glyphicon-tags text-info" style="margin-right:5px;"></span>
         <em ng-repeat="tag in blog.tags">
             <a class="tag-link" ng-href="/#/blogs/tags/{{tag}}" style="margin-left:5px;">{{tag}}</a>{{$last ? '' : ', '}}
