@@ -1,9 +1,15 @@
 # Meow-BlogView
 Angular module used with Meow blogging engine to view blogs.
 
+Demo : http://meow-sample-app.herokuapp.com/blogs
+
+In 'production': http://www.sumeetdas.me/blogs
+
 ### Features
 
 * This module is created using angular-ui-router.
+
+* You can add your own custom angular directives in your blog posts.
 
 * It leverages the responsive utility classes provided by bootstrap to help the app adapt to various screen sizes.
 
